@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <hello-horloge></hello-horloge>
     <hello-prenom></hello-prenom>
+    <hello-list></hello-list>
   `,
 })
 export class AppComponent {
