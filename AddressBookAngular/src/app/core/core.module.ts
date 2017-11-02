@@ -1,3 +1,4 @@
+import { ContactService } from './contact.service';
 import { RouterModule } from '@angular/router';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 
@@ -9,6 +10,10 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
   imports: [
     SharedModule,
     RouterModule,
+  ],
+  providers: [
+    // {provide: ContactService, useClass: ContactService}
+    ContactService
   ],
   declarations: [
     TopMenuComponent,

@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+import { ContactService } from './../../core/contact.service';
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../shared/contact.model';
 
@@ -10,10 +12,14 @@ export class ContactsListComponent implements OnInit {
 
   public contacts: Contact[] = [];
 
-  constructor() { }
+  constructor(
+    protected contactService: ContactService,
+  ) {}
 
   ngOnInit() {
-
+    this.contactService.getList().subscribe(contacts => {
+      this.contacts = contacts;
+    });
   }
 
 }

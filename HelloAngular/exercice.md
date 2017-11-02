@@ -24,3 +24,29 @@ Binding events :
 Binding
 - ngFor
 - interpoler
+
+# Suite
+
+* Créer 3 composants supplémentaire
+  * form
+  * list
+  * details
+  
+* form 
+```
+<form>
+  <input>
+  <button>+</button>
+</form>
+```
+
+* list
+```
+<div>
+  <todo-details *ngFor="let t of todos" [todo]="t"></todo-details>
+</div>
+```
+
+* details
+
+Affiche la todo

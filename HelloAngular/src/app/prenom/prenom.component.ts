@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <div>Prénom : <input (input)="modifierPrenom($event)"></div>
     <p [ngClass]="{red: prenom === 'Red'}">
-      Bonjour {{prenom}} !
+      Bonjour {{prenom | uppercase}} !
     </p>
   `,
   styles: [

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Contact } from '../contacts/shared/contact.model';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/delay';
 
 @Injectable()
 export class ContactService {
@@ -19,6 +21,7 @@ export class ContactService {
   constructor() { }
 
   public getList(): Observable<Contact[]> {
-
+    return Observable.of(this.contacts)
+            .delay(1200);
   }
 }
