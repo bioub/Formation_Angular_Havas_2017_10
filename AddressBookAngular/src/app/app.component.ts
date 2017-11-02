@@ -9,5 +9,7 @@ export class AppComponent {
 
   public title = 'ab';
 
-
+  public update() {
+    this.title = String(Math.random());
+  }
 }
