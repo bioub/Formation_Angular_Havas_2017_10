@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Contact } from '../shared/contact.model';
+import { ContactService } from '../../core/contact.service';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'ab-contacts-show',
@@ -7,9 +14,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsShowComponent implements OnInit {
 
-  constructor() { }
+  public contact: Contact;
+
+  constructor(
+    protected contactService: ContactService,
+    protected route: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.route.params
+      .switchMap(params => this.contactService.getById(params.id))
+      .subscribe(contact => {
+        this.contact = contact;
+      });
   }
 
 }

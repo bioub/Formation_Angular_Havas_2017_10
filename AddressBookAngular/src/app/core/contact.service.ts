@@ -1,38 +1,31 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+
 import { Contact } from '../contacts/shared/contact.model';
+import { environment } from '../../environments/environment';
+
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
+
+const url = `${environment.restUrl}/users`;
 
 @Injectable()
 export class ContactService {
 
-  public contacts: Contact[] = [
-    new Contact({
-      id: 123,
-      name: 'Steve Jobs',
-    }),
-    new Contact({
-      id: 456,
-      name: 'Bill Gates',
-    })
-  ];
+  // ReplaySubject
 
-  constructor() { }
+  constructor(
+    protected httpClient: HttpClient
+  ) { }
 
   public getList(): Observable<Contact[]> {
-    return Observable.of(this.contacts)
-            .delay(1200);
+    return this.httpClient
+               .get<Contact[]>(url);
   }
 
   public getById(id: number | string): Observable<Contact> {
-    if (typeof id === 'string') {
-      id = Number(id);
-    }
-
-    const contact = this.contacts.find(c => c.id === id);
-
-    return Observable.of(contact)
-      .delay((id === 123) ? 5000 : 1000);
+    return this.httpClient
+               .get<Contact>(`${url}/${id}`);
   }
 }

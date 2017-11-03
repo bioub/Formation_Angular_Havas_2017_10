@@ -1,3 +1,5 @@
-<p>
-  contacts-show works!
+<h2>{{contact?.name}}</h2>
+
+<p *ngIf="contact?.email">
+  Email : {{contact?.email}}
 </p>

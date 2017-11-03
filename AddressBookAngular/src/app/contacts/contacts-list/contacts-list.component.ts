@@ -1,5 +1,4 @@
-import { Observable } from 'rxjs/Observable';
-import { ContactService } from './../../core/contact.service';
+import { ContactService } from '../../core/contact.service';
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../shared/contact.model';
 

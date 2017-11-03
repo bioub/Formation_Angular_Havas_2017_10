@@ -1,9 +1,10 @@
-import { ContactService } from './contact.service';
-import { RouterModule } from '@angular/router';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
-import { SharedModule } from './../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
+import { ContactService } from './contact.service';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -11,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     SharedModule,
     RouterModule,
+    HttpClientModule,
   ],
   providers: [
     {provide: ContactService, useClass: ContactService}
