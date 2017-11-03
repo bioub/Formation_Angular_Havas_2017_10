@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
     CoreModule,
     SharedModule,
     ContactsModule,
-    AppRoutingModule
+    AppRoutingModule, // reste à la fin à cause de NotFound
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { SharedModule } from './../shared/shared.module';
 import { TopMenuComponent } from './top-menu/top-menu.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -12,14 +13,16 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
     RouterModule,
   ],
   providers: [
-    // {provide: ContactService, useClass: ContactService}
-    ContactService
+    {provide: ContactService, useClass: ContactService}
+    // ContactService,
   ],
   declarations: [
     TopMenuComponent,
+    NotFoundComponent,
   ],
   exports: [
     TopMenuComponent,
+    NotFoundComponent,
   ]
 })
 export class CoreModule {

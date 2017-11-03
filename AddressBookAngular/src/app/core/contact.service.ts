@@ -24,4 +24,15 @@ export class ContactService {
     return Observable.of(this.contacts)
             .delay(1200);
   }
+
+  public getById(id: number | string): Observable<Contact> {
+    if (typeof id === 'string') {
+      id = Number(id);
+    }
+
+    const contact = this.contacts.find(c => c.id === id);
+
+    return Observable.of(contact)
+      .delay((id === 123) ? 5000 : 1000);
+  }
 }
