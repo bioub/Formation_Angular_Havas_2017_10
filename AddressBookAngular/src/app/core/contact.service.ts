@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -15,6 +15,8 @@ export class ContactService {
 
   // ReplaySubject
 
+  public events = new EventEmitter();
+
   constructor(
     protected httpClient: HttpClient
   ) { }
@@ -27,5 +29,10 @@ export class ContactService {
   public getById(id: number | string): Observable<Contact> {
     return this.httpClient
                .get<Contact>(`${url}/${id}`);
+  }
+
+  public add(contact: Contact): Observable<Contact> {
+    return this.httpClient
+               .post<Contact>(url, contact);
   }
 }

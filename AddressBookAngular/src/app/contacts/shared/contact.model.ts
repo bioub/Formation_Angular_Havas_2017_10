@@ -2,26 +2,26 @@ interface ContactOptions {
   id?: number;
   name: string;
   email?: string;
-  telephone?: string;
+  phone?: string;
 }
 
 export class Contact {
   public id: number;
   public name: string;
   public email: string;
-  public telephone: string;
+  public phone: string;
 
   constructor(options: ContactOptions) {
     const {
       id = 0,
       name,
       email = '',
-      telephone = '',
+      phone = '',
     } = options;
 
     this.id = id;
     this.name = name;
     this.email = email;
-    this.telephone = telephone;
+    this.phone = phone;
   }
 }

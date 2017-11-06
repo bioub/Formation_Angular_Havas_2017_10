@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  restUrl: 'https://jsonplaceholder.typicode.com',
+  restUrl: 'http://localhost:3000',
 };

@@ -12,9 +12,15 @@ const routes: Routes = [{
   children: [{
     path: 'add',
     component: ContactsAddComponent,
+    data: {
+      state: 'contacts.add'
+    }
   }, {
     path: ':id',
     component: ContactsShowComponent,
+    data: {
+      state: 'contacts.show'
+    }
   }]
 }];
 

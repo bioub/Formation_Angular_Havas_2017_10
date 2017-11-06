@@ -1,3 +1,26 @@
-<p>
-  contacts-add works!
-</p>
+<form #contactForm="ngForm" (submit)="contactForm.valid && ajouterContact()"
+      [ngClass]="{'was-validated': contactForm.submitted}">
+  <div class="form-group" [ngClass]="{'was-validated': name.touched}">
+    <label for="nomComplet">Nom complet</label>
+    <input type="text" class="form-control" id="nomComplet"
+           placeholder="Saisissez votre nom complet" required
+           [(ngModel)]="newContact.name" name="name" #name="ngModel">
+    <div class="invalid-feedback">
+      Le nom est obligatoire
+    </div>
+    <div *ngIf="name.invalid && (name.touched || contactForm.submitted)">
+      Le nom est obligatoire
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" placeholder="Email"
+           [(ngModel)]="newContact.email" name="email">
+  </div>
+  <div class="form-group">
+    <label for="telephone">Téléphone</label>
+    <input type="tel" class="form-control" id="telephone" placeholder="Téléphone"
+           [(ngModel)]="newContact.phone" name="phone">
+  </div>
+  <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>

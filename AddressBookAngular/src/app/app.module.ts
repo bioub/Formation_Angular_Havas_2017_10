@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AppComponent } from './app.component';
     SharedModule,
     ContactsModule,
     AppRoutingModule, // reste à la fin à cause de NotFound
+    BrowserAnimationsModule, // @anim
   ],
   providers: [],
   bootstrap: [AppComponent]
